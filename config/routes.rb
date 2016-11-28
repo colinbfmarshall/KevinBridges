@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  resources :profiles
   root 'welcome#index'
   get 'welcome/index'
+  
+  devise_for :users, controllers: { registrations: "registrations" }
+  resources :posts
 end

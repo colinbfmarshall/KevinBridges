@@ -1,0 +1,19 @@
+<%= simple_form_for(@profile) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :category, collection: ['Stylist', 'Customer'], prompt: "Select account", label: 'Account Type', input_html: { class: 'form-control' } %>
+    <%= f.input :username %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :mobile %>
+    <%= f.input :about %>  
+    <%= f.input :salon %>
+    <%= f.input :location %>
+    <%= f.input :profile_picture, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

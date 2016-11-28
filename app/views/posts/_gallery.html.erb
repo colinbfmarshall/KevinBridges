@@ -1,0 +1,7 @@
+<% @posts.each do |post| %>
+  <div class="col-md-4">
+    <%= link_to post do %>
+      <%= image_tag post.picture, id:'post-index-image' %>
+    <% end %>
+  </div>
+<% end %>

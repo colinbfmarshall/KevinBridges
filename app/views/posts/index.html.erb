@@ -1,0 +1,27 @@
+<div class="row">
+
+  <div class="panel panel-default">
+    <div class="panel-body search-bar">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="What...">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Where...">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-success">Search</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <%= render partial: 'posts/gallery', locals: {posts: @posts}  %>
+
+</div>

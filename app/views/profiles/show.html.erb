@@ -1,0 +1,31 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3><%= @profile.username %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-3">
+      <%= image_tag @profile.profile_picture.url(:thumb) %>
+    </div>
+    <div class="col-md-9">
+      <p><strong>Name:</strong> <%= @profile.display_name %></p>
+      <p><strong>Salon:</strong> <%= @profile.salon %></p>
+      <p><strong>Location:</strong> <%= @profile.location %></p>
+      <p><strong>About:</strong><%= simple_format(@profile.about) %></p>
+      <hr>
+      <button type="button" class="btn btn-danger"><i class="fa fa-heart" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <% @profile.user.posts.each do |post| %>
+    <div class="col-md-3">
+      <%= link_to post do %>
+        <%= image_tag post.picture.url(:medium) %>
+      <% end %>  
+    </div>
+  <% end %>
+</div>
