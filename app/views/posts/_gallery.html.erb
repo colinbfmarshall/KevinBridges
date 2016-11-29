@@ -1,7 +1,12 @@
-<% @posts.each do |post| %>
-  <div class="col-md-4">
-    <%= link_to post do %>
-      <%= image_tag post.picture, id:'post-index-image' %>
-    <% end %>
-  </div>
-<% end %>
+<div class="col-sm-6 col-md-4 gallery-image">
+  <%= link_to post do %>
+    <div class="panel panel-default">
+      <div class="panel-body" style="padding-top: 0px;padding-left: 0px;padding-right: 0px">
+        <%= image_tag post.picture, id:'post-index-image' %>
+        <div style="padding:5px;padding-left:10px;padding-right:10px">
+          <h5><%= link_to "By #{post.user.profile.username}", profile_path(post.user.profile) %></h5>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

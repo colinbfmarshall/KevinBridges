@@ -21,11 +21,7 @@
 <hr>
 
 <div>
-  <% @profile.user.posts.each do |post| %>
-    <div class="col-md-3">
-      <%= link_to post do %>
-        <%= image_tag post.picture.url(:medium) %>
-      <% end %>  
-    </div>
-  <% end %>
+
+  <%= render partial: 'posts/gallery', collection: @profile.user.posts, as: :post %>
+
 </div>
