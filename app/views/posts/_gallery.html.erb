@@ -1,10 +1,11 @@
 <div class="col-sm-6 col-md-4 gallery-image">
   <%= link_to post do %>
     <div class="panel panel-default">
-      <div class="panel-body" style="padding-top: 0px;padding-left: 0px;padding-right: 0px">
+      <div class="panel-body">
         <%= image_tag post.picture, id:'post-index-image' %>
-        <div style="padding:5px;padding-left:10px;padding-right:10px">
+        <div>
           <h5><%= link_to "By #{post.user.profile.username}", profile_path(post.user.profile) %></h5>
+          <h6><%= post.price %></h6>
         </div>
       </div>
     </div>

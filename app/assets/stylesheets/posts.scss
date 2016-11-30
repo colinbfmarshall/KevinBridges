@@ -4,21 +4,21 @@
 
 #post-panel {
   color: #777;
-
   h4 {
     display: inline;
   }
-
   h5 {
+    float:right;
+    margin: 0px;
+    margin-top: 2px;
     display: inline;
     letter-spacing: 2px;
-  }
 
+  }
   p {
     text-align: left;
     margin-top: 5px;
   }
-
 }
 
 #post-panel-image {
@@ -31,6 +31,7 @@
   width: 100%;
   height: 300px;
   border-radius: 3px;
+  margin-bottom: 10px;
 }
 
 .search-bar {
@@ -47,7 +48,25 @@
 
 .gallery-image {
   margin-bottom: 10px;
+  h5 {
+    display: inline;
+    margin: 0px;
+    margin-left: 20px;
+  }
+  h6 {
+    display: inline;
+    float:right;
+    margin: 0px;
+    margin-top: 3px;
+    margin-right: 20px;
+    letter-spacing: 1px;
+  }
   .panel {
     box-shadow: 2px 2px 1px #e7e7e7;
+  }
+  .panel-body {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px
   }
 }
