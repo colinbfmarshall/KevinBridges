@@ -9,7 +9,7 @@ class Profile < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :mobile, presence: true
-  validates :about, presence: true, length: { minimum: 140, maximum: 500 }
+  validates :about, presence: true, length: { minimum: 120, maximum: 500 }
   validates :salon, presence: true
   validates :location, presence: true
 
