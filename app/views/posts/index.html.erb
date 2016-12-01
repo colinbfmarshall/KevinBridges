@@ -1,4 +1,16 @@
 <div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-body search-bar">
+        <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+          <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="row">
 
   <div class="panel panel-default">
     <div class="panel-body search-bar">
@@ -19,7 +31,7 @@
   </div>
 
 </div>
-
+ -->
 <div class="row">
 
   <%= render partial: 'posts/gallery', collection: @posts, as: :post %>

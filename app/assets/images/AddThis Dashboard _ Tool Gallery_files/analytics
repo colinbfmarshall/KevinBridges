@@ -1,0 +1,26 @@
+function piResponse() {
+piSetCookie('visitor_id92742', '158675460', 3650);
+
+if (document.location.protocol != "https:") {
+var analytics_link = "http://" + "go.addthis.com/analytics?";
+pi.tracker.visitor_id='158675460';
+
+pi.tracker.visitor_id_sign='fc51f3919619a81a5fb3dbf372037f7912e305b38b532630b4f63ca90d7f07affa2b4288fe3ef5d1f4c65bf6ded5baa6830318b5';
+
+var variables = 'conly=true';
+for (property in pi.tracker) {
+	variables += "&"+property+"="+pi.tracker[property];
+}
+var headID = document.getElementsByTagName("head")[0];
+piScriptObj[piScriptNum] = document.createElement('script');
+piScriptObj[piScriptNum].type = 'text/javascript';
+piScriptObj[piScriptNum].src = analytics_link + variables;
+headID.appendChild(piScriptObj[piScriptNum]);
+piScriptObj[piScriptNum].onload = function() { return; }
+}
+}
+piResponse();
+
+
+
+

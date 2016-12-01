@@ -5,7 +5,10 @@
     <%= f.input :treatment, collection: ['Haircut', 'Nails', 'Eyelashes'], prompt: "Select treatment", input_html: { class: 'form-control' } %>
     <%= f.input :price, collection: ['£', '££', '£££', '££££'], prompt: "Select price", input_html: { class: 'form-control' } %>
     <%= f.input :comment, as: :text %>
+    <em style="float:right">(Seperate by comma)</em>
+    <%= f.input :tag_list, as: :text, input_html: { class: 'form-control' }, placeholder: "" %>
     <%= f.button :submit %>
+
   </div>
 
 <!-- Need to work out way of adding gender -->

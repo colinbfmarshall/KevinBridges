@@ -24,6 +24,8 @@ gem 'font-awesome-sass'
 
 gem 'paperclip', '~> 5.0.0'
 
+gem 'acts-as-taggable-on', '~> 4.0'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end

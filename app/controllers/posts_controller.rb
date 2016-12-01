@@ -1,11 +1,17 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :tag_cloud, only: [:index]
+
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order('created_at DESC')
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+    else
+      @posts = Post.all.order('created_at DESC')
+    end
   end
 
   # GET /posts/1
@@ -70,6 +76,10 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:treatment, :price, :comment, :picture, :user_id)
+      params.require(:post).permit(:treatment, :price, :comment, :picture, :user_id, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+    end
+
+    def tag_cloud
+      @tags = Post.tag_counts_on(:tags).order('count desc').limit(20)
     end
 end

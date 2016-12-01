@@ -7,6 +7,8 @@
         <h4>By <%= link_to "#{@post.user.profile.username}", profile_path(@post.user.profile) %></h4>
         <h5><%= @post.price %></h5>
         <p><%= @post.comment %></p>
+        <hr>
+        <%= @post.tag_list %>
       </div>
     </div>
 
