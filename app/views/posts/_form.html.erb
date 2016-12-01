@@ -3,10 +3,10 @@
   <div class="form-group">
     <%= f.input :picture, as: :file %>
     <%= f.input :treatment, collection: ['Haircut', 'Nails', 'Eyelashes'], prompt: "Select treatment", input_html: { class: 'form-control' } %>
-    <%= f.input :price, collection: ['£', '££', '£££', '££££'], prompt: "Select price", input_html: { class: 'form-control' } %>
+    <%= f.input :price, collection: Price.all, label_method: :amount, prompt: "Select price", input_html: { class: 'form-control' } %>
     <%= f.input :comment, as: :text %>
-    <em style="float:right">(Seperate by comma)</em>
-    <%= f.input :tag_list, as: :text, input_html: { class: 'form-control' }, placeholder: "" %>
+    <em style="float:right">(Seperate Tags by comma)</em>
+    <%= f.input :tag_list, as: :text, input_html: { class: 'form-control' }, placeholder: "#{popular_tags}" %>
     <%= f.button :submit %>
 
   </div>
