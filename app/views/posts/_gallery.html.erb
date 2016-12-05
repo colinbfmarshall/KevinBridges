@@ -5,7 +5,7 @@
         <%= image_tag post.picture, id:'post-index-image' %>
         <div>
           <h5><%= link_to "By #{post.user.profile.username}", profile_path(post.user.profile) %></h5>
-          <h6><%= post.price %></h6>
+          <h6><%= Price.find_by(id: post.price).characters %></h6>
         </div>
       </div>
     </div>

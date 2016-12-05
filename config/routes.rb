@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations" }
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+  end 
+
   resources :profiles
   resources :tags, except: :show
   get 'tags/:tag', to: 'posts#index'

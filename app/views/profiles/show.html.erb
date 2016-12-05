@@ -2,7 +2,7 @@
   <div class="panel-body">
     <h3><%= @profile.username %></h3>
     <div class="col-md-3">
-      <%= image_tag @profile.profile_picture.url(:medium) %>
+      <%= image_tag @profile.profile_picture, style:'width:100%;border-radius:4px' %>
     </div>
     <div class="col-md-9">
       <p><strong>Name:</strong> <%= @profile.display_name %></p>
