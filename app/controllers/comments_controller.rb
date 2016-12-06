@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :set_post, only: [:new, :create]
+  before_action :authenticate_user!, except: [:index, :show, :report]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy, :report]
+  before_action :set_post, only: [:new, :create, :report]
 
   # GET /comments
   # GET /comments.json
@@ -62,6 +62,10 @@ class CommentsController < ApplicationController
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def report
+    @comment.update_attribute(:live, false) 
   end
 
   private

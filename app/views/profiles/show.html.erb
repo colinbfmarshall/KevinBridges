@@ -1,16 +1,18 @@
-<div class="panel panel-default">
+<div class="panel panel-default profile-panel">
   <div class="panel-body">
-    <h3><%= @profile.username %></h3>
-    <div class="col-md-3">
-      <%= image_tag @profile.profile_picture, style:'width:100%;border-radius:4px' %>
+    <div class="col-md-3 col-sm-4 profile-panel-left">
+      <%= image_tag @profile.profile_picture, id:'profile-picture' %>
     </div>
-    <div class="col-md-9">
-      <p><strong>Name:</strong> <%= @profile.display_name %></p>
-      <p><strong>Salon:</strong> <%= @profile.salon %></p>
-      <p><strong>Location:</strong> <%= @profile.location %></p>
-      <p><strong>About:</strong><%= simple_format(@profile.about) %></p>
+    <div class="col-md-7 col-sm-8 profile-panel-right">
+      <h3><%= @profile.username %></h3>
+      <p id='profile-name'><%= @profile.display_name %></p>
+      <p id='profile-salon'><%= @profile.salon %></p>
+      <p id='profile-location'><%= @profile.location %></p>
       <hr>
-      <button type="button" class="btn btn-danger"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <p><%= simple_format(@profile.about) %></p>
+    </div>
+    <div class="col-md-2 profile-panel-buttons">
+      <% if owner(@profile) %> <%= link_to 'Edit', edit_profile_path(@profile), class:'btn btn-default' %> <% end %>
     </div>
   </div>
 </div>

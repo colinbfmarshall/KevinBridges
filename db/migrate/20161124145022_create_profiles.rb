@@ -9,6 +9,7 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.string :mobile
       t.text :about
       t.string :salon
+      t.string :salon_website
       t.string :location
 
       t.timestamps

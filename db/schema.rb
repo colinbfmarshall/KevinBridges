@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161206092632) do
     t.integer  "user_id"
     t.string   "comment"
     t.string   "treatment"
+    t.string   "length"
     t.string   "gender"
     t.string   "price"
     t.datetime "created_at",           null: false
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 20161206092632) do
     t.string   "mobile"
     t.text     "about"
     t.string   "salon"
+    t.string   "salon_website"
     t.string   "location"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false

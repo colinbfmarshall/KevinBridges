@@ -4,6 +4,7 @@ class CreatePost < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       t.string :comment
       t.string :treatment
+      t.string :length
       t.string :gender
       t.string :price
       t.timestamps

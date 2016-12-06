@@ -1,13 +1,18 @@
 <%= simple_form_for @post do |f| %>
+  <div style="text-align:center">
+    <img height="100%" width="60%" alt="Image preview...">
+  </div>
 
   <div class="form-group">
-    <%= f.input :picture, as: :file %>
-    <%= f.input :treatment, collection: ['Haircut', 'Nails', 'Eyelashes'], prompt: "Select treatment", input_html: { class: 'form-control' } %>
+    <%= f.input :picture, as: :file, :input_html => {:onchange => "previewFile()"} %>
+    <%= f.input :treatment, :as => :hidden, :input_html => { :value => "Haircut" } %>
+    <%= f.input :length, collection: ['Shaved', 'Short', 'Medium', 'Long'], prompt: "Select treatment", input_html: { class: 'form-control' } %>
     <%= f.input :price, collection: Price.all, label_method: :amount, prompt: "Select price", input_html: { class: 'form-control' } %>
     <%= f.input :comment, as: :text %>
     <em style="float:right">(Seperate Tags by comma)</em>
     <%= f.input :tag_list, as: :text, input_html: { class: 'form-control' }, placeholder: "#{popular_tags}" %>
-    <%= f.button :submit %>
+    <hr>
+    <%= f.button :submit, 'Upload Picture' %>
 
   </div>
 

@@ -3,7 +3,6 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :tag_cloud, only: [:index, :new]
 
-
   # GET /posts
   # GET /posts.json
   def index
@@ -81,7 +80,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:treatment, :price, :comment, :picture, :user_id, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+      params.require(:post).permit(:treatment, :price, :length, :comment, :picture, :user_id, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
     end
 
     def tag_cloud

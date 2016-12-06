@@ -1,5 +1,29 @@
-<p>Welcome <%= @email %>!</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta property="og:title" content="*|MC:SUBJECT|*">
+  <title>*|MC:SUBJECT|*</title>
+  <style type="text/css">
+    p {
+      font-family: 'Varela Round', sans-serif;
+    }
+    a {
+      font-family: 'Varela Round', sans-serif;
+      color: #E56399;
+    }
 
-<p>You can confirm your account email through the link below:</p>
+  </style>
+</head>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<body>
+  <div>
+    <p>Hi,</p>
+    <p>Thanks for registering, we really appreciate your support.</p>
+    <p>Please confirm your email address by clicking the link below:</p>
+    <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %>
+    <p>Thanks again</p>
+  </div>
+</body>
+</html>

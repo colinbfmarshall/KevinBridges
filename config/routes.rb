@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'posts#index'
   get 'welcome/index'
 
   devise_for :users, controllers: { registrations: "registrations" }
@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     member do
       put "like", to: "posts#upvote"
     end
-    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+    resources :comments, only: [:new, :create, :edit, :update, :destroy] do
+      member do
+        put "report", to: "comments#report"
+      end
+    end
   end 
 
   resources :profiles

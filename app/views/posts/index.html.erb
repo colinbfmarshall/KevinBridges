@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-body search-bar">
         <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
@@ -8,37 +8,8 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
-    <div class="panel panel-default">
-      <div class="panel-body search-bar">
-
-      </div>
-    </div>
-  </div>
 </div>
 
-<!-- <div class="row">
-
-  <div class="panel panel-default">
-    <div class="panel-body search-bar">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="What...">
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Where...">
-        </div>
-      </div>
-      <div class="col-sm-2">
-        <button class="btn btn-success">Search</button>
-      </div>
-    </div>
-  </div>
-
-</div>
- -->
 <div class="row">
 
   <%= render partial: 'posts/gallery', collection: @posts, as: :post %>

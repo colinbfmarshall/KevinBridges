@@ -10,7 +10,11 @@
     <%= f.input :about %>  
     <%= f.input :salon %>
     <%= f.input :location %>
-    <%= f.input :profile_picture, as: :file %>
+    <%= f.input :profile_picture, as: :file, :input_html => {:onchange => "previewFile()"} %>
+    <div style="text-align:center">
+      <img height="100%" width="60%"  alt="Image preview...">
+    </div>
+    <hr>
     <%= f.button :submit %>
   </div>
 <% end %>
