@@ -18,10 +18,6 @@ gem 'react-rails'
 gem 'devise'
 gem 'omniauth'
 
-gem 'rolify'
-
-gem 'cancan'
-
 gem 'simple_form'
 
 gem 'font-awesome-sass'

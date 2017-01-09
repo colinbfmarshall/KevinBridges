@@ -28,4 +28,6 @@
 <div class="row">
   <%= render partial: 'posts/gallery', collection: @posts, as: :post %>
 </div>
+<hr>
+<%= will_paginate @posts, class:'digg_pagination pull-right' %>
 

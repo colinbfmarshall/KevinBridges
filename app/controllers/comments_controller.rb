@@ -66,6 +66,7 @@ class CommentsController < ApplicationController
 
   def report
     @comment.update_attribute(:live, false) 
+    redirect_to :back
   end
 
   private

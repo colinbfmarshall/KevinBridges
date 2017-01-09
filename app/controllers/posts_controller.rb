@@ -14,6 +14,8 @@ class PostsController < ApplicationController
       @posts = Post.filter(params.slice(:price, :location))
       @posts = @posts.hair_length("#{params["hair_length"]}") if params[:hair_length].present?
     end
+
+    @posts = @posts.paginate(:page => params[:page], :per_page => 12)
   end
 
   # GET /posts/1

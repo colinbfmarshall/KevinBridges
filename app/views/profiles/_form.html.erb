@@ -2,10 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+
     <%= f.input :username, placeholder: 'Desired Username' %>
     <%= f.input :first_name, placeholder: 'First Name' %>
     <%= f.input :last_name, placeholder: 'Surname' %>
     <%= f.input :mobile, placeholder: 'Mobile Number' %>
+    
     <% if current_user.category == "Stylist" %>
       <%= f.input :about, placeholder: 'About You' %>  
       <%= f.input :salon, placeholder: 'Salon or Barber' %>
@@ -13,10 +15,13 @@
     <% end %>
 
     <%= f.input :profile_picture, as: :file, :input_html => {:onchange => "previewFile()"} %>
+    
     <div style="text-align:center">
       <img height="100%" width="60%"  alt="Image preview...">
     </div>
+
     <hr>
     <%= f.button :submit, class:'btn-pink btn-block' %>
+  
   </div>
 <% end %>
