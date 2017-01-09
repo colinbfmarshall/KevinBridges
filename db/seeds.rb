@@ -17,3 +17,4 @@ price_list = [
 price_list.each do |characters, amount|
   Price.create( characters: characters, amount: amount )
 end
+

@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20161219114010) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "category"
     t.string   "username"
     t.string   "first_name"
     t.string   "last_name"
@@ -74,7 +73,10 @@ ActiveRecord::Schema.define(version: 20161219114010) do
     t.text     "about"
     t.string   "salon"
     t.string   "salon_website"
-    t.string   "location"
+    t.string   "postcode"
+    t.string   "city"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.string   "profile_picture_file_name"

@@ -10,8 +10,9 @@
     
     <% if current_user.category == "Stylist" %>
       <%= f.input :about, placeholder: 'About You' %>  
-      <%= f.input :salon, placeholder: 'Salon or Barber' %>
-      <%= f.input :location, placeholder: 'City' %>
+      <%= f.input :salon, placeholder: 'Salon or Barber Name', label:'Salon Name'  %>
+      <%= f.input :salon_website, placeholder: 'Salon Website' %>
+      <%= f.input :postcode, placeholder: 'Salon Postcode', label:'Salon Postcode' %>
     <% end %>
 
     <%= f.input :profile_picture, as: :file, :input_html => {:onchange => "previewFile()"} %>

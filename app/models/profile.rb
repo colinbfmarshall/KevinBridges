@@ -6,12 +6,23 @@ class Profile < ApplicationRecord
 
   validates :profile_picture, :first_name, :last_name, :mobile, presence: true
   validates :username, presence: true, uniqueness: true
-  
-  validates :about, presence: true, length: { maximum: 500 }, :if => lambda { |profile| profile.user.category == "Stylist" }
-  validates :salon, :location, presence: true, :if => lambda { |profile| profile.user.category == "Stylist" }
 
+  validates :about, presence: true, length: { maximum: 500 }, :if => lambda { |profile| profile.user.category == "Stylist" }  
+  validates :postcode, presence: true, :if => lambda { |profile| profile.user.category == "Stylist" }
+  validates :salon, :salon_website, presence: true, :if => lambda { |profile| profile.user.category == "Stylist" }
+
+  geocoded_by :postcode
+  after_validation :geocode
+  after_validation :reverse_geocode
 
   def display_name
-      [first_name, last_name].join(' ')
+    [first_name, last_name].join(' ')
   end
+
+  reverse_geocoded_by :latitude, :longitude do |obj,results|
+    if geo = results.first
+      obj.city = geo.city
+    end
+  end
+
 end

@@ -23,7 +23,7 @@ class Post < ApplicationRecord
 
   scope :price, -> (price) { where price: price }
   scope :hair_length, -> (hair_length) {where length: hair_length }
-  scope :location, lambda { |location| joins(:profile).where('profiles.location = ?', location) }
+  scope :location, lambda { |location| joins(:profile).where('profiles.city = ?', location) }
 
   def add_tags
     if self.tag_list.to_a.exclude?(self.length)

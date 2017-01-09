@@ -8,7 +8,7 @@
             <%= select_tag :treatment, options_for_select(["Haircut", "Haircut & Colour", "Colour", "Styling"], selected: params[:length]), html_options = { class:'form-control', prompt: "Treatment", style:"margin:5px;" } %>
             <%= select_tag :hair_length, options_for_select(["Shaved", "Short", "Medium", "Long"], selected: params[:hair_length]), html_options = { class:'form-control', prompt: "Length", style:"margin:5px" } %>
             <%= select_tag :price, options_from_collection_for_select(Price.all, 'id', 'characters', selected: params[:price]), html_options = { class:'form-control', prompt: "Price", style:"margin:5px" } %>            
-            <%= select_tag :location, options_for_select(["London", "Manchester", "Birmingham", "Bristol"], selected: params[:location]), html_options = { class:'form-control', prompt: "Location", style:"margin:5px" } %>
+            <%= select_tag :location, options_for_select(Profile.all.to_a.pluck(:city).compact.uniq, selected: params[:location]), html_options = { class:'form-control', prompt: "Location", style:"margin:5px" } %>
           </div>
             <%= submit_tag 'Search', class:'btn btn-default btn-pink' %>
         <% end %>
@@ -28,6 +28,4 @@
 <div class="row">
   <%= render partial: 'posts/gallery', collection: @posts, as: :post %>
 </div>
-<hr>
 <%= will_paginate @posts, class:'digg_pagination pull-right' %>
-

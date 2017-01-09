@@ -17,6 +17,7 @@ gem 'react-rails'
 
 gem 'devise'
 gem 'omniauth'
+gem 'geocoder'
 
 gem 'simple_form'
 

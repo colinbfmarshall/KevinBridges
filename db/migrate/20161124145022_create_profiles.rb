@@ -9,7 +9,10 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.text :about
       t.string :salon
       t.string :salon_website
-      t.string :location
+      t.string :postcode
+      t.string :city
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

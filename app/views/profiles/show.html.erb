@@ -8,8 +8,8 @@
       <p id='profile-name'><%= @profile.display_name %></p>
       
       <% if @profile.user.category == "Stylist" %>
-        <p id='profile-salon'><%= @profile.salon %></p>
-        <p id='profile-location'><%= @profile.location %></p>
+        <p id='profile-salon'><%= link_to @profile.salon, "http://#{@profile.salon_website}", target: '_blank' %></p>
+        <p id='profile-city'><%= @profile.city %></p>
       <% end %>
 
       <hr>
