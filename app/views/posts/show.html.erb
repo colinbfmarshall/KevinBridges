@@ -3,7 +3,8 @@
     <div class="panel panel-default" id="post-panel">
       <div class="panel-body">
         <%= image_tag @post.picture, id:'post-panel-image' %>
-        <h4>By <%= link_to "#{@post.user.profile.username}", profile_path(@post.user.profile) %></h4>
+        <h4>By <%= link_to "#{stylist(@post)}", profile_path(@post.stylist) %></h4>
+        
         <h5><%= Price.find_by(id: @post.price).characters %></h5>
         <p><%= @post.comment %></p>
         <% @post.tag_list.each do |tag| %>
@@ -12,22 +13,12 @@
 
         <%= link_to like_post_path(@post), method: :put, "type" => "submit", "class" => "pull-right", "data-toggle" => "tooltip", "data-placement" => "right", "title" => likes(@post) do %><i class="fa fa-heart fa-2x" aria-hidden="true" style="color:#E56399"></i><% end %>
         <hr>
-        <%= link_to 'Add Comment', new_post_comment_path(@post), class:'pull-right' %>
-        <% @post.comments.live.each do |comment| %>
-          <p style="margin:5px">
-            <strong>
-              <%= link_to "#{comment.user.profile.username}", profile_path(comment.user.profile), style:'color:#52489C' %>
-            </strong>
-            <%= comment.body %>
-            <%= link_to 'report', report_post_comment_path(@post, comment), method: :put, type:"submit", style:"font-size:.7em" %>
-          </p>
-        <% end %>
+
+        <%= render partial: 'comments', locals: {post: @post} %>
+
       </div>
     </div>
-
+    <% if owner(@post) %> <%= link_to 'Edit', edit_post_path(@post), class:'btn btn-default' %><% end %>
+    <%= link_to 'Back', :back, class:'btn btn-default' %>
   </div>
-
 </div>
-
-<% if owner(@post) %> <%= link_to 'Edit', edit_post_path(@post) %> | <% end %>
-<%= link_to 'Back', posts_path %>

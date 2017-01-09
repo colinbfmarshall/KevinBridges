@@ -6,10 +6,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @posts = Post.all    
+    
     if params[:tag]
       @posts = Post.tagged_with(params[:tag])
-    else
-      @posts = Post.all.order('created_at DESC')
+    elsif params.present?
+      @posts = Post.filter(params.slice(:price, :location))
+      @posts = @posts.hair_length("#{params["hair_length"]}") if params[:hair_length].present?
     end
   end
 
@@ -32,6 +35,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    set_stylist
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -80,10 +84,15 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:treatment, :price, :length, :comment, :picture, :user_id, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+      params.require(:post).permit(:stylist, :treatment, :price, :length, :comment, :picture, :user_id, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
     end
 
     def tag_cloud
       @tags = Post.tag_counts_on(:tags).order('count desc').limit(20)
     end
+
+    def set_stylist
+      @post.stylist = current_user.id if current_user.category == "Stylist"
+    end
+    
 end

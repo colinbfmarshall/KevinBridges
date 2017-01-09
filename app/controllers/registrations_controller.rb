@@ -35,6 +35,10 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def sign_up_params
+    devise_parameter_sanitizer.sanitize(:sign_up)
+  end
+
 
 protected
 
@@ -44,6 +48,12 @@ protected
 
   def after_inactive_sign_up_path_for(resource)
     edit_profile_path(resource.profile)
+  end
+
+private
+
+  def sign_up_params
+    params.require(:user).permit(:category, :email, :password, :password_confirmation)
   end
 
 end

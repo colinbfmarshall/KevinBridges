@@ -16,7 +16,9 @@
 
 
 body {
-font-family: 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
+  padding-top: 70px;
+  padding-bottom: 50px;
 }
 
 // #E56399
@@ -24,3 +26,9 @@ font-family: 'Varela Round', sans-serif;
 // #52489C
 // #EBEBEB
 // #122C34
+
+.panel-default > .panel-heading {
+  color: white;
+  background-color: #59C3C3;
+  text-align: center;
+}

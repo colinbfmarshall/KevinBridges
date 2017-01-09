@@ -18,6 +18,10 @@ gem 'react-rails'
 gem 'devise'
 gem 'omniauth'
 
+gem 'rolify'
+
+gem 'cancan'
+
 gem 'simple_form'
 
 gem 'font-awesome-sass'
@@ -26,6 +30,8 @@ gem 'paperclip', '~> 5.0.0'
 
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'acts_as_votable', '~> 0.10.0'
+
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

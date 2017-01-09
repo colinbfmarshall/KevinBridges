@@ -3,16 +3,21 @@
     <div class="col-md-3 col-sm-4 profile-panel-left">
       <%= image_tag @profile.profile_picture, id:'profile-picture' %>
     </div>
-    <div class="col-md-7 col-sm-8 profile-panel-right">
+    <div class="col-md-8 col-sm-8 profile-panel-right">
       <h3><%= @profile.username %></h3>
       <p id='profile-name'><%= @profile.display_name %></p>
-      <p id='profile-salon'><%= @profile.salon %></p>
-      <p id='profile-location'><%= @profile.location %></p>
+      
+      <% if @profile.user.category == "Stylist" %>
+        <p id='profile-salon'><%= @profile.salon %></p>
+        <p id='profile-location'><%= @profile.location %></p>
+      <% end %>
+
       <hr>
       <p><%= simple_format(@profile.about) %></p>
-    </div>
-    <div class="col-md-2 profile-panel-buttons">
-      <% if owner(@profile) %> <%= link_to 'Edit', edit_profile_path(@profile), class:'btn btn-default' %> <% end %>
+      <% if owner(@profile) %> 
+        <%= link_to 'Add Picture', new_post_path, class:'btn btn-pink' %>         
+        <%= link_to 'Edit Profile', edit_profile_path(@profile), class:'btn btn-turquoise' %> 
+      <% end %>
     </div>
   </div>
 </div>
@@ -21,6 +26,14 @@
 
 <div>
 
-  <%= render partial: 'posts/gallery', collection: @profile.user.posts, as: :post %>
+  <% if @profile.user.category == "Stylist" %>
+    
+    <%= render partial: 'posts/gallery', collection: Post.where(stylist: @profile.user), as: :post %>
+  
+  <% elsif @profile.user.category == "Customer" %>
+
+    <%= render partial: 'posts/gallery', collection: @profile.user.posts, as: :post %>
+      
+  <% end %>
 
 </div>

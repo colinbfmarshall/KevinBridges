@@ -3,14 +3,12 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3>New Post</h3>
+        <h4>New Post</h4>
       </div>
       <div class="panel-body">
         <%= render 'form', post: @post %>
       </div>
     </div>
+    <%= link_to 'Back', :back, class:'btn btn-default' %>
   </div>
 </div>
-
-
-    <%= link_to 'Back', posts_path %>

@@ -18,7 +18,8 @@
             <%= f.input :password, autocomplete: "off", label: "New Password" %>
             <%= f.input :password_confirmation, autocomplete: "off", label: "New Password Confirmation" %>
             <%= f.input :current_password, autocomplete: "off", label: "Currrent Password  (to confirm your changes)" %>
-            <%= f.button :submit %>
+            <hr>
+            <%= f.button :submit, class:'btn-pink btn-block' %>
           </div>
         <% end %>
 
@@ -27,6 +28,3 @@
     </div>
   </div>
 </div>
-
-
-<%= link_to "Back", :back %>

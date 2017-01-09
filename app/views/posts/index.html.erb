@@ -1,17 +1,31 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6 col-md-offset-3">
+  
     <div class="panel panel-default">
       <div class="panel-body search-bar">
+        <%= form_tag posts_path, :method => :get, :class => "form-inline" do %>
+          <div class="form-group">
+            <%= select_tag :treatment, options_for_select(["Haircut", "Haircut & Colour", "Colour", "Styling"], selected: params[:length]), html_options = { class:'form-control', prompt: "Treatment", style:"margin:5px;" } %>
+            <%= select_tag :hair_length, options_for_select(["Shaved", "Short", "Medium", "Long"], selected: params[:hair_length]), html_options = { class:'form-control', prompt: "Length", style:"margin:5px" } %>
+            <%= select_tag :price, options_from_collection_for_select(Price.all, 'id', 'characters', selected: params[:price]), html_options = { class:'form-control', prompt: "Price", style:"margin:5px" } %>            
+            <%= select_tag :location, options_for_select(["London", "Manchester", "Birmingham", "Bristol"], selected: params[:location]), html_options = { class:'form-control', prompt: "Location", style:"margin:5px" } %>
+          </div>
+            <%= submit_tag 'Search', class:'btn btn-default btn-pink' %>
+        <% end %>
+        <hr style="margin:5px">
         <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
           <%= link_to tag.name, tag_path(tag.name), class: css_class, style: 'color: #59C3C3;' %>
         <% end %>
+        <br>
+        <%= link_to 'reset', posts_path %>
       </div>
     </div>
+
   </div>
 </div>
 
+
 <div class="row">
-
   <%= render partial: 'posts/gallery', collection: @posts, as: :post %>
-
 </div>
+

@@ -1,8 +1,23 @@
 <%= simple_form_for([@post, @comment]) do |f| %> 
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :body %>
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class="pull-right"><span id="body-count">140</span> characters left</div>    
+    <%= f.input :body, input_html: { :id => "body-field", :cols => 5, :rows => 2 } %>
+    <hr>
+    <%= f.button :submit, class:'btn-pink' %>
   </div>
+
 <% end %>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $("#body-field").on("keyup", function(){
+    var length = $(this).val().length;
+    $("#body-count").html(140 - length);
+  });
+});
+
+</script>

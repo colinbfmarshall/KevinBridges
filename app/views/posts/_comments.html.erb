@@ -1,0 +1,13 @@
+<% @post.comments.live.each do |comment| %>
+  <p style="margin:5px">
+    <strong>
+      <%= link_to "#{comment.user.profile.username}", profile_path(comment.user.profile), style:'color:#52489C' %>
+    </strong>
+    <%= comment.body %>
+    <% if owner(comment) %>
+      <%= link_to 'Edit', edit_post_comment_path(@post, comment), style:'font-size:.7em' %>
+    <% end %>
+    <%= link_to 'report', report_post_comment_path(@post, comment), method: :put, type:'submit', style:'font-size:.7em' %>
+  </p>
+<% end %>
+<%= link_to 'Add Comment', new_post_comment_path(@post), class:'pull-right' %>

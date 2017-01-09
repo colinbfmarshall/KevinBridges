@@ -9,4 +9,8 @@ module PostsHelper
     end
   end
 
+  def stylist(post)
+    User.find_by(id: post.stylist).username
+  end
+
 end

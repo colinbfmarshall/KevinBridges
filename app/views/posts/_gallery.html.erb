@@ -4,8 +4,8 @@
       <div class="panel-body">
         <%= image_tag post.picture, id:'post-index-image' %>
         <div>
-          <h5><%= link_to "By #{post.user.profile.username}", profile_path(post.user.profile) %></h5>
-          <h6><%= Price.find_by(id: post.price).characters %></h6>
+          <h5><%= link_to "By #{stylist(post)}", profile_path(post.stylist) %></h5>
+          <h6><%= post.get_likes.size %><i class="fa fa-heart pull-right" aria-hidden="true" style="color:#E56399"></i></h6>
         </div>
       </div>
     </div>
