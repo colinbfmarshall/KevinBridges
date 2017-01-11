@@ -23,6 +23,7 @@ class Post < ApplicationRecord
 
   scope :price, -> (price) { where price: price }
   scope :hair_length, -> (hair_length) {where length: hair_length }
+  scope :treatment, -> (treatment) { where treatment: treatment }
   scope :location, lambda { |location| joins(:profile).where('profiles.city = ?', location) }
 
   def add_tags
@@ -30,6 +31,7 @@ class Post < ApplicationRecord
       self.tag_list << self.length  
       self.save!
     end
+
   end
 
   def check_tags

@@ -5,7 +5,9 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+    @stylist_profiles = Profile.joins(:user).where("users.category = ?","Stylist")
+
+    @customer_profiles = Profile.joins(:user).where("users.category = ?","Customer")
   end
 
   # GET /profiles/1

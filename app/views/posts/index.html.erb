@@ -5,9 +5,9 @@
       <div class="panel-body search-bar">
         <%= form_tag posts_path, :method => :get, :class => "form-inline" do %>
           <div class="form-group">
-            <%= select_tag :treatment, options_for_select(["Haircut", "Haircut & Colour", "Colour", "Styling"], selected: params[:length]), html_options = { class:'form-control', prompt: "Treatment", style:"margin:5px;" } %>
+            <%= select_tag :treatment, options_from_collection_for_select(Treatment.all, 'id', 'name', selected: params[:treatment]), html_options = { class:'form-control', prompt: "Treatment", style:"margin:5px" } %>
             <%= select_tag :hair_length, options_for_select(["Shaved", "Short", "Medium", "Long"], selected: params[:hair_length]), html_options = { class:'form-control', prompt: "Length", style:"margin:5px" } %>
-            <%= select_tag :price, options_from_collection_for_select(Price.all, 'id', 'characters', selected: params[:price]), html_options = { class:'form-control', prompt: "Price", style:"margin:5px" } %>            
+            <%= select_tag :price, options_from_collection_for_select(Price.all, 'id', 'characters', selected: params[:price]), html_options = { class:'form-control', prompt: "Price", style:"margin:5px" } %>
             <%= select_tag :location, options_for_select(Profile.all.to_a.pluck(:city).compact.uniq, selected: params[:location]), html_options = { class:'form-control', prompt: "Location", style:"margin:5px" } %>
           </div>
             <%= submit_tag 'Search', class:'btn btn-default btn-pink' %>

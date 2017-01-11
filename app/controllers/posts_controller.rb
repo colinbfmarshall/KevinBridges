@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     if params[:tag]
       @posts = Post.tagged_with(params[:tag])
     elsif params.present?
-      @posts = Post.filter(params.slice(:price, :location))
+      @posts = Post.filter(params.slice(:treatment, :price, :location))
       @posts = @posts.hair_length("#{params["hair_length"]}") if params[:hair_length].present?
     end
 
