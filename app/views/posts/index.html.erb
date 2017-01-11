@@ -13,17 +13,16 @@
             <%= submit_tag 'Search', class:'btn btn-default btn-pink' %>
         <% end %>
         <hr style="margin:5px">
-        <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-          <%= link_to tag.name, tag_path(tag.name), class: css_class, style: 'color: #59C3C3;' %>
-        <% end %>
-        <br>
+          <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+            <%= link_to tag.name, tag_path(tag.name), class: css_class, style: 'color: #59C3C3;' %>
+          <% end %>
+          <br>
         <%= link_to 'reset', posts_path %>
       </div>
     </div>
 
   </div>
 </div>
-
 
 <div class="row">
   <%= render partial: 'posts/gallery', collection: @posts, as: :post %>

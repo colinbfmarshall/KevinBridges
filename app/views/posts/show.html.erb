@@ -7,6 +7,7 @@
         
         <h5><%= Price.find_by(id: @post.price).characters %></h5>
         <p><%= @post.comment %></p>
+        <i class="fa fa-tags" aria-hidden="true" style="color:#52489C"></i>
         <% @post.tag_list.each do |tag| %>
           <%= link_to tag, tag_path(tag), style: 'color: #59C3C3;text-align:right;' %>
         <% end %>
