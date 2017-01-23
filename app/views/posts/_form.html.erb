@@ -9,6 +9,7 @@
     <% if current_user.category == "Customer" %>
       <%= f.input :stylist, collection: User.where(category: "Stylist"), prompt: "Find Stylist", input_html: { class: 'form-control' }, label: "Stylist", label_method: :username %>
     <% end %>
+
     <%= f.input :treatment, collection: Treatment.all, label_method: :name, prompt: "Select Treatment", input_html: { class: 'form-control' } %>
     <%= f.input :length, collection: ['Shaved', 'Short', 'Medium', 'Long'], prompt: "Select length", input_html: { class: 'form-control' } %>
     <%= f.input :price, collection: Price.all, label_method: :amount, prompt: "Select price", input_html: { class: 'form-control' } %>

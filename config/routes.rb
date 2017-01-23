@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+  root 'welcome#index'
   get 'welcome/index'
 
   devise_for :users, controllers: { registrations: "registrations" }
