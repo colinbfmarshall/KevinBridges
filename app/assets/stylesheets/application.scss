@@ -10,6 +10,7 @@
 @import "posts";
 @import "tags";
 @import "profiles";
+@import "search";
 
 @import url('https://fonts.googleapis.com/css?family=Emblema+One');
 @import url('https://fonts.googleapis.com/css?family=Armata|Emblema+One');
@@ -21,14 +22,19 @@ body {
   padding-bottom: 50px;
 }
 
-// #E56399
-// #59C3C3
 // #52489C
-// #EBEBEB
-// #122C34
+// #F61067
+// #FBA8C7
+// #00F0B5
+// #6DECAF
+// #F4F4ED
 
 .panel-default > .panel-heading {
   color: white;
   background-color: #59C3C3;
   text-align: center;
+}
+
+.fa-heart {
+  color: #F61067;
 }

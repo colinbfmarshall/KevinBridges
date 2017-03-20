@@ -7,7 +7,9 @@
       <div class="panel-footer" style="background: white;border: 0px;">
         <p>
           <%= link_to "By #{stylist(post)}", profile_path(post.stylist) %></h5>
-          <span class="pull-right"><%= post.get_likes.size %>  <i class="fa fa-heart" aria-hidden="true" style="color:#E56399"></i></span>
+          <span class="pull-right">
+            <%= post.get_likes.size %>&nbsp;<i class="fa fa-heart" aria-hidden="true"></i>
+          </span>
         </p>
       </div>
     </div>

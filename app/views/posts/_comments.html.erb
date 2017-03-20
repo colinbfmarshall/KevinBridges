@@ -10,4 +10,4 @@
     <%= link_to 'report', report_post_comment_path(@post, comment), method: :put, type:'submit', style:'font-size:.7em' %>
   </p>
 <% end %>
-<%= link_to 'Add Comment', new_post_comment_path(@post), class:'pull-right' %>
+<p style="text-align: right"><%= link_to 'Add Comment', new_post_comment_path(@post) %><p>

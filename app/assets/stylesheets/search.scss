@@ -1,0 +1,25 @@
+.search-bar {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align:center;
+  padding: 0px;
+  border: 0px;
+  border-radius: 2px;
+
+  .panel-body {
+    padding: 3px;
+  }
+
+  .panel-footer {
+    background-color: white;
+  }
+
+  .form-group {
+    margin-bottom:0px;
+    margin: 5px;
+  }
+  
+  .btn-success {
+    margin: 5px;
+    width: 100%;
+  }
+}
