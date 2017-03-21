@@ -13,10 +13,13 @@
           <%= link_to tag, tag_path(tag), class:'tag' %>
         <% end %>
 
-        <%= link_to like_post_path(@post), method: :put, "type" => "submit", "class" => "pull-right", "data-toggle" => "tooltip", "data-placement" => "right", "title" => likes(@post) do %>
-          <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
-        <% end %>
-        
+
+
+          <%= link_to like_post_path(@post), method: :put, "type" => "submit", "class" => "pull-right", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Love it!" do %>
+            <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
+          <% end %>
+          <p class="pull-right"><%= @post.get_likes.size %>&nbsp;&nbsp;</p>
+
         <hr>
         <%= render partial: 'comments', locals: {post: @post} %>
 
@@ -26,3 +29,9 @@
     <%= link_to 'Back', :back, class:'btn btn-default' %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>

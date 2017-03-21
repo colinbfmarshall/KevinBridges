@@ -24,6 +24,7 @@ gem 'simple_form'
 gem 'font-awesome-sass'
 
 gem 'paperclip', '~> 5.0.0'
+gem 'aws-sdk', '~> 2.3'
 
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'acts_as_votable', '~> 0.10.0'

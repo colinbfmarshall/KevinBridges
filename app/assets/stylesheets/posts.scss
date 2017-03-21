@@ -54,7 +54,7 @@
 
 #post-index-image {
   width: 100%;
-  height: 300px;
+  height: 250px;
   -moz-border-radius: 0px;
   -webkit-border-radius: 2px 2px 0px 0px;
   border-radius: 2px 2px 0px 0px; 
@@ -86,7 +86,27 @@
 .panel-footer {
   padding-top: 5px;
   padding-bottom: 5px;
+  background-color: white;
 }
+
+.popover {
+  text-align:center;
+  width: 100px;
+  background-color: #F61067;
+  color: white;
+  border:0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Emblema One', cursive;
+  font-size: 1.1em;
+  border-radius: 30px;
+
+  .arrow {
+    visibility:hidden;
+  }
+}
+
+
+
 
 .digg_pagination {
   font-size: 0.7em;
@@ -135,3 +155,4 @@
     height: 1%; }
   *:first-child + html .digg_pagination {
     overflow: hidden; }
+

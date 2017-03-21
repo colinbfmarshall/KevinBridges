@@ -13,9 +13,9 @@
     <%= f.input :treatment, collection: Treatment.all, label_method: :name, prompt: "Select Treatment", input_html: { class: 'form-control' } %>
     <%= f.input :length, collection: ['Shaved', 'Short', 'Medium', 'Long'], prompt: "Select length", input_html: { class: 'form-control' } %>
     <%= f.input :price, collection: Price.all, label_method: :amount, prompt: "Select price", input_html: { class: 'form-control' } %>
-    <%= f.input :comment, as: :text %>  
     <em style="float:right">(Seperate Tags by comma)</em>
     <%= f.input :tag_list, as: :text, input_html: { class: 'form-control' }, placeholder: "#{popular_tags}" %>
+    <%= f.input :comment, as: :text %>  
     <hr>
     <%= f.button :submit, 'Upload Picture', class:'btn btn-pink btn-block' %>
 
