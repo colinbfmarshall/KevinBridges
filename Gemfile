@@ -19,6 +19,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'geocoder'
 
+gem 'figaro'
+
 gem 'simple_form'
 
 gem 'font-awesome-sass'
