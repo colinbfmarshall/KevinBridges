@@ -11,15 +11,14 @@ class Post < ApplicationRecord
   validates :treatment, presence: true
   validates :price, presence: true
   validates :length, presence: true
+  validates :comments, length: { maximum: 140 }
 
   belongs_to :user
   has_many :comments
   has_one :profile, :through => :user
   delegate :username, to: :profile
 
-  after_commit :add_tags, :check_tags
-
-  default_scope { order(cached_votes_total: :desc) }
+  after_commit :add_tags, :check_tags 
 
   scope :price, -> (price) { where price: price }
   scope :hair_length, -> (hair_length) {where length: hair_length }
@@ -42,6 +41,14 @@ class Post < ApplicationRecord
         self.save!
       end
     end
+  end
+
+  def self.most_votes
+    order(cached_votes_total: :desc)
+  end
+
+  def self.newest
+    order(created_at: :desc)
   end
 
 end

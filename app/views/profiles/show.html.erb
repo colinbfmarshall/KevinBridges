@@ -10,6 +10,7 @@
       <% if @profile.user.category == "Stylist" %>
         <p id='profile-salon'><%= link_to @profile.salon, "http://#{@profile.salon_website}", target: '_blank' %></p>
         <p id='profile-city'><%= @profile.city %></p>
+        <p id='profile-city' style="float: right"><%= @profile.total_likes %>&nbsp;&nbsp;<i class="fa fa-heart" aria-hidden="true"></i></p>
       <% end %>
 
       <hr>
@@ -27,8 +28,8 @@
 <div>
 
   <% if @profile.user.category == "Stylist" %>
-    
-    <%= render partial: 'posts/gallery', collection: Post.where(stylist: @profile.user), as: :post %>
+
+    <%= render partial: 'posts/gallery', collection: Post.where(stylist: @profile.user).newest, as: :post %>
   
   <% elsif @profile.user.category == "Customer" %>
 

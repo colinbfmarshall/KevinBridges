@@ -4,29 +4,24 @@
       <div class="panel-body">
         <%= image_tag @post.picture, id:'post-panel-image' %>
       </div>
-      <div class="panel-footer">
-        <h4>By <%= link_to "#{stylist(@post)}", profile_path(@post.stylist) %></h4>
+      <div class="panel-footer" style="padding-top: 15px">
+        <h4><%= link_to "By #{stylist(@post)}", profile_path(@post.stylist) %></h4>
         <h5><%= Price.find_by(id: @post.price).characters %></h5>
         <p><%= @post.comment %></p>
         <i class="fa fa-tags" aria-hidden="true" style="color:#52489C"></i>
         <% @post.tag_list.each do |tag| %>
           <%= link_to tag, tag_path(tag), class:'tag' %>
         <% end %>
-
-
-
           <%= link_to like_post_path(@post), method: :put, "type" => "submit", "class" => "pull-right", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Love it!" do %>
             <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
           <% end %>
           <p class="pull-right"><%= @post.get_likes.size %>&nbsp;&nbsp;</p>
-
         <hr>
         <%= render partial: 'comments', locals: {post: @post} %>
 
       </div>
     </div>
     <% if owner(@post) %> <%= link_to 'Edit', edit_post_path(@post), class:'btn btn-default' %><% end %>
-    <%= link_to 'Back', :back, class:'btn btn-default' %>
   </div>
 </div>
 

@@ -1,6 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
   delegate :category, to: :user
+  has_many :posts, through: :user
 
   has_attached_file :profile_picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :profile_picture, content_type: /\Aimage\/.*\z/
@@ -26,6 +27,10 @@ class Profile < ApplicationRecord
     if geo = results.first
       obj.city = geo.city
     end
+  end
+
+  def total_likes
+    posts.sum(&:cached_votes_total)
   end
 
 end
