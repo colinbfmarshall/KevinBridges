@@ -90,12 +90,13 @@ Rails.application.configure do
     s3_credentials: {
       bucket: ENV['AWS_BUCKET_NAME'],
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
       s3_region: ENV["AWS_REGION"],
     },
     s3_host_name: "s3-eu-west-1.amazonaws.com", # Added entry
     url: ":s3_host_name"                        # Added entry
   }
+
 
   config.action_mailer.default_url_options = { :host => 'belleby.com' }
   config.action_mailer.delivery_method = :smtp
