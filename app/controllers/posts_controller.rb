@@ -7,11 +7,12 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all    
-    
     if params[:tag]
       @posts = Post.tagged_with(params[:tag])
-    elsif params.present?
-      @posts = Post.filter(params.slice(:treatment, :price, :location))
+    elsif params[:treatments].present?
+      @posts = @posts.treatment_filter(params[:treatments]) if params[:treatments].present?
+    else
+      @posts = Post.filter(params.slice(:price, :location))
       @posts = @posts.hair_length("#{params["hair_length"]}") if params[:hair_length].present?
     end
 
@@ -86,7 +87,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:stylist, :treatment, :price, :length, :comment, :picture, :user_id, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+      params.require(:post).permit(:stylist, :treatment, :price, :length, :comment, :picture, :user_id, :tag_list, :tag, { tag_ids: [] }, :tag_ids, treatment_ids: [])
     end
 
     def tag_cloud

@@ -8,22 +8,32 @@ class Post < ApplicationRecord
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
   validates :picture, attachment_presence: true
-  validates :treatment, presence: true
   validates :price, presence: true
   validates :length, presence: true
   validates :comments, length: { maximum: 140 }
 
   belongs_to :user
   has_many :comments
-  has_one :profile, :through => :user
+  has_one :profile, through: :user
   delegate :username, to: :profile
+  
+  has_many :post_treatments  
+  has_many :treatments, through: :post_treatments
 
   after_commit :add_tags, :check_tags 
 
   scope :price, -> (price) { where price: price }
   scope :hair_length, -> (hair_length) {where length: hair_length }
-  scope :treatment, -> (treatment) { where treatment: treatment }
+
+  scope :treatment_filter, -> (ids_ary) { joins(:treatments).where("treatments.id" => ids_ary) }
+
+
   scope :location, lambda { |location| joins(:profile).where('profiles.city = ?', location) }
+
+  # def self.treatment_filter(params)
+  #   raise joins(:post_treatments).treatments.inspect
+  #   # params.map(&:to_i).any? {|param| p.treatments.pluck(:id).include?(param) }
+  # end
 
   def add_tags
     if self.tag_list.to_a.exclude?(self.length)

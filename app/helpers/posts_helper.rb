@@ -13,4 +13,12 @@ module PostsHelper
     User.find_by(id: post.stylist).username
   end
 
+  def checked_checkbox(treatment, params)
+    if params.present? 
+      true if params.include?(treatment.id.to_s)
+    else
+      false
+    end
+  end
+
 end

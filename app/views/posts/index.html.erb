@@ -1,10 +1,13 @@
 <div class="row">
-  <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+  <div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1">
     <div class="panel panel-default search-bar">
       <div class="panel-body">
         <%= form_tag posts_path, :method => :get, :class => "form-inline" do %>
           <div class="form-group">
-            <%= select_tag :treatment, options_from_collection_for_select(Treatment.all, 'id', 'name', selected: params[:treatment]), html_options = { class:'form-control', prompt: "Treatment" } %>
+            <% Treatment.all.each do |treatment| %>
+              <%= check_box_tag("treatments[]", treatment.id, checked_checkbox(treatment, params[:treatments]) ) %>
+              <%= treatment.name %>
+            <% end %>
             <%= select_tag :hair_length, options_for_select(["Shaved", "Short", "Medium", "Long"], selected: params[:hair_length]), html_options = { class:'form-control', prompt: "Length" } %>
             <%= select_tag :price, options_from_collection_for_select(Price.all, 'id', 'characters', selected: params[:price]), html_options = { class:'form-control', prompt: "Price" } %>
             <%= select_tag :location, options_for_select(Profile.all.to_a.pluck(:city).compact.uniq, selected: params[:location]), html_options = { class:'form-control', prompt: "Location" } %>
