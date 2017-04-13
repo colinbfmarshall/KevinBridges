@@ -10,7 +10,11 @@ module PostsHelper
   end
 
   def stylist(post)
-    User.find_by(id: post.stylist).username
+    if post.stylist.present?
+      return(link_to "By #{User.find_by(id: post.stylist).username}", profile_path(post.stylist))
+    else
+      return("#{post.user.username}")
+    end
   end
 
   def searchbox_checked_checkbox(treatment, params)

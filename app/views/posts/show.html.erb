@@ -5,13 +5,15 @@
         <%= image_tag @post.picture, id:'post-panel-image' %>
       </div>
       <div class="panel-footer" style="padding-top: 15px">
-        <h4><%= link_to "By #{stylist(@post)}", profile_path(@post.stylist) %></h4>
+        <h4 style="color:#337ab7"><%= stylist(@post) %></h4>
         <h5><%= Price.find_by(id: @post.price).characters %></h5>
         <p><%= @post.comment %></p>
+        
         <i class="fa fa-tags" aria-hidden="true" style="color:#52489C"></i>
         <% @post.tag_list.each do |tag| %>
           <%= link_to tag, tag_path(tag), class:'tag' %>
         <% end %>
+        
           <%= link_to like_post_path(@post), method: :put, "type" => "submit", "class" => "pull-right", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Love it!" do %>
             <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
           <% end %>

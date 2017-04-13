@@ -7,7 +7,7 @@
       <div class="panel-footer" style="background: white;border: 0px;padding-top: 5px;padding-bottom: 0px">
       <div class="row">
         <div class="col-xs-6">
-          <p><%= link_to "By #{stylist(post)}", profile_path(post.stylist) %></p>
+          <p><%= stylist(post) %></p>
         </div>
         <div class="col-xs-6"  style="text-align: right;padding:5px;padding-right:15px;">
           <span style="color:#777;"><%= post.get_likes.size %>&nbsp;</span>
