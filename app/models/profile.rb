@@ -11,7 +11,7 @@ class Profile < ApplicationRecord
 
   validates :about, presence: true, length: { maximum: 500 }, :if => lambda { |profile| profile.user.category == "Stylist" }  
   validates :postcode, presence: true, :if => lambda { |profile| profile.user.category == "Stylist" }
-  validates :salon, :salon_website, presence: true, :if => lambda { |profile| profile.user.category == "Stylist" }
+  #validates :salon, :salon_website, presence: true, :if => lambda { |profile| profile.user.category == "Stylist" }
 
   geocoded_by :postcode
   after_validation :geocode

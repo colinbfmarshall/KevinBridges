@@ -12,7 +12,7 @@
 
     <div>
       <% Treatment.all.each do |treatment| %>
-        <%= check_box_tag "post[treatment_ids][]", treatment.id, f.object.treatment.include?(treatment) %>
+        <%= check_box_tag "post[treatment_ids][]", treatment.id, form_checked_checkbox(@post, treatment) %>
         <%= treatment.name %>
       <% end %>
     </div>

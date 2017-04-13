@@ -1,13 +1,10 @@
-<!-- <div class="jumbotron">
-  
-  <div class="jumbotron-text">
-    <h1>Hello, world!</h1>
-    <p>This is the landing page, it's going to be so great.</p>
-    <p>There's going to be pictures and copy explaining what's happening.</p>
-    <p>It's going to be sooo great!</p>
-    <%# link_to 'SIGN UP', new_user_registration_path, class:'btn btn-primary btn-lg' %>
-  </div>
-</div> -->
+
+<div class="row" style="text-align: center">  
+  <h1 style="font-family: 'Abril Fatface', cursive;color:#173872">Belle By</h1>
+  <h4>Showcase the beauty you create.</h4>
+</div>
+
+<br>
 
 <div class="row">
   <%= render partial: 'posts/gallery', collection: Post.most_votes, as: :post %>
